@@ -1,0 +1,147 @@
+/* ── Design tokens ────────────────────────────────────────────────────────── */
+:root {
+  --espresso:     #26201B;
+  --espresso-mid: #312620;
+  --dusk:         #3D342C;
+  --sand:         #B08C6B;
+  --sand-light:   #C9A882;
+  --stone:        #E3D9CF;
+  --dust:         #C8BDB4;
+  --cream:        #F7F4EF;
+  --white:        #ffffff;
+
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --radius:          6px;
+  --transition:      0.3s ease;
+  --transition-slow: 0.55s ease;
+}
+
+/* ── Reset ────────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--dusk);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+}
+
+/* ── Shared utilities ────────────────────────────────────────────────────── */
+.section-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--espresso);
+}
+
+.section-title--light {
+  color: var(--cream);
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.85rem 2.25rem;
+  background-color: var(--sand);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: var(--sand-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(176, 140, 107, 0.3);
+  outline: none;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 0.85rem 2.25rem;
+  background-color: transparent;
+  color: var(--cream);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(247, 244, 239, 0.4);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), color var(--transition), background-color var(--transition);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  border-color: var(--sand);
+  color: var(--sand);
+  background-color: rgba(176, 140, 107, 0.06);
+  outline: none;
+}
+
+/* Variant for use on light backgrounds */
+.btn-secondary--dark {
+  color: var(--espresso);
+  border-color: rgba(38, 32, 27, 0.3);
+}
+
+.btn-secondary--dark:hover,
+.btn-secondary--dark:focus-visible {
+  border-color: var(--sand);
+  color: var(--sand);
+  background-color: rgba(176, 140, 107, 0.06);
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

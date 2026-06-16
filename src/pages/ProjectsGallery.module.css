@@ -1,0 +1,146 @@
+/* ── Banner ──────────────────────────────────────────────────────────────── */
+.banner {
+  background-color: var(--espresso);
+  padding: 9rem 2rem 5rem;
+}
+
+.bannerInner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(247, 244, 239, 0.55);
+  margin-bottom: 2rem;
+  transition: color var(--transition);
+}
+
+.back:hover {
+  color: var(--sand);
+}
+
+.title {
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.sub {
+  font-size: 1rem;
+  color: rgba(247, 244, 239, 0.65);
+  line-height: 1.8;
+  max-width: 580px;
+}
+
+/* ── Gallery section ─────────────────────────────────────────────────────── */
+.gallery {
+  background-color: var(--cream);
+  padding: 5rem 2rem;
+}
+
+/* CSS masonry via columns */
+.masonry {
+  max-width: 1200px;
+  margin: 0 auto;
+  columns: 3;
+  column-gap: 1.25rem;
+}
+
+/* ── Individual item ─────────────────────────────────────────────────────── */
+.item {
+  break-inside: avoid;
+  margin: 0 0 1.25rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.item:hover img {
+  transform: scale(1.04);
+}
+
+/* Caption overlay */
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1rem 1rem;
+  background: linear-gradient(to top, rgba(38, 32, 27, 0.75) 0%, transparent 100%);
+  color: var(--cream);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.item:hover .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── CTA strip ───────────────────────────────────────────────────────────── */
+.cta {
+  background-color: var(--stone);
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  text-align: center;
+}
+
+.ctaText {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 400;
+  color: var(--espresso);
+  line-height: 1.3;
+}
+
+/* btn-primary on light bg needs override to look right */
+.cta .btn-primary {
+  /* inherited from global; already correct */
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .masonry {
+    columns: 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .banner {
+    padding: 8rem 1.5rem 4rem;
+  }
+
+  .gallery {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .masonry {
+    columns: 1;
+  }
+
+  .caption {
+    opacity: 1;
+    transform: none;
+  }
+}
